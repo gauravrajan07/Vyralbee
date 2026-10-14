@@ -1,465 +1,574 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Viral Bee | We Make Brands Visible</title>
-  <meta name="description" content="Viral Bee builds visibility, demand and brand momentum for exceptional businesses." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet" />
-  <style>
-    :root {
-      --bg: #fffaf1;
-      --bg-strong: #ffe798;
-      --surface: #ffffff;
-      --surface-soft: #f6f0e7;
-      --ink: #1a1406;
-      --muted: #5b5133;
-      --line: rgba(26, 20, 6, 0.12);
-      --brand: #ffc50c;
-      --brand-2: #ff8d3a;
-      --shadow: 0 24px 60px rgba(14, 11, 5, 0.12);
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VyralBee | Creative Digital Marketing Agency</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Using Syne for ultra-modern headings and Plus Jakarta for body -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        display: ['"Syne"', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#FFF0EE',
+                            100: '#FFDED9',
+                            200: '#FFC2B8',
+                            500: '#FF4F38', // Vibrant Vermilion / Coral
+                            600: '#E03620', 
+                            900: '#7A1505',
+                        },
+                        dark: {
+                            DEFAULT: '#111111',
+                            secondary: '#2A2A2A'
+                        },
+                        surface: '#F4F4F0', // Organic Alabaster
+                    },
+                    animation: {
+                        'float': 'float 7s cubic-bezier(0.37, 0, 0.63, 1) infinite',
+                        'float-delayed': 'float 7s cubic-bezier(0.37, 0, 0.63, 1) 3.5s infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-15px)' },
+                        }
+                    },
+                    boxShadow: {
+                        'glass': '0 20px 40px -10px rgba(0,0,0,0.08)',
+                        'soft': '0 10px 30px -5px rgba(0,0,0,0.05)',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #F4F4F0;
+            color: #111111;
+            overflow-x: hidden;
+        }
+        
+        /* Modern Glass Card */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+        }
 
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      font-family: "DM Sans", Arial, sans-serif;
-      background: linear-gradient(180deg, #fffaf1, #fffdf9 20%, #fffaf1 100%);
-      color: var(--ink);
-      line-height: 1.6;
-    }
-    img { display: block; max-width: 100%; }
-    a { color: inherit; text-decoration: none; }
-    p { margin: 0; }
-    h1, h2, h3 { margin: 0; font-family: "Bricolage Grotesque", "DM Sans", sans-serif; line-height: 0.98; letter-spacing: -0.04em; }
-    .wrap { width: min(1180px, calc(100% - 32px)); margin: 0 auto; }
-    .site-header {
-      position: sticky; top: 0; z-index: 20; backdrop-filter: blur(12px);
-      background: rgba(255, 250, 241, 0.72); border-bottom: 1px solid rgba(26, 20, 6, 0.08);
-    }
-    .nav {
-      display: flex; align-items: center; justify-content: space-between; min-height: 78px; gap: 24px;
-    }
-    .brand {
-      display: inline-flex; align-items: center; gap: 12px; font-family: "Bricolage Grotesque", sans-serif;
-      font-size: 1.35rem; font-weight: 800; letter-spacing: -0.05em;
-    }
-    .brand-mark {
-      width: 42px; height: 42px; border-radius: 14px; display: grid; place-items: center;
-      background: linear-gradient(135deg, var(--brand), var(--brand-2)); color: var(--ink);
-      box-shadow: inset 0 0 0 2px rgba(26,20,6,0.1), 0 10px 25px rgba(255, 197, 12, 0.28);
-      font-size: 0.9rem;
-    }
-    .brand span:last-child { color: var(--muted); }
-    .nav-links {
-      display: flex; align-items: center; gap: 30px; font-size: 0.96rem; font-weight: 600; color: var(--muted);
-    }
-    .nav-links a { position: relative; padding-bottom: 6px; }
-    .nav-links a::after {
-      content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 2px; background: var(--ink);
-      transform: scaleX(0); transform-origin: left center; transition: transform 0.25s ease;
-    }
-    .nav-links a:hover::after, .nav-links a:focus-visible::after { transform: scaleX(1); }
-    .btn {
-      display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 0.9rem 1.45rem;
-      border-radius: 999px; background: var(--ink); color: #fff; border: 1px solid var(--ink); font-weight: 700;
-      box-shadow: 0 12px 25px rgba(26, 20, 6, 0.12); transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-    .btn:hover, .btn:focus-visible { transform: translateY(-2px); box-shadow: 0 18px 30px rgba(26, 20, 6, 0.16); }
-    .btn.alt { background: transparent; border-color: var(--line); color: var(--ink); box-shadow: none; }
-    .btn.alt:hover, .btn.alt:focus-visible { background: rgba(255, 197, 12, 0.15); }
+        /* High-end transitional reveal classes */
+        .reveal-up {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        
+        .reveal-scale {
+            opacity: 0;
+            transform: scale(0.95);
+            transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+        }
 
-    .hero {
-      position: relative; overflow: hidden; padding: 74px 0 48px;
-      background: radial-gradient(circle at top right, rgba(255, 197, 12, 0.38), transparent 28%),
-        linear-gradient(180deg, rgba(255, 197, 12, 0.18), rgba(255, 197, 12, 0) 35%);
-    }
-    .hero-grid { display: grid; align-items: center; grid-template-columns: 1.1fr 0.9fr; gap: 42px; min-height: 640px; }
-    .eyebrow {
-      display: inline-flex; align-items: center; gap: 12px; padding: 8px 14px; border-radius: 999px;
-      border: 1px solid var(--line); background: rgba(255, 255, 255, 0.58); font-size: 0.76rem; font-weight: 700;
-      letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-bottom: 24px;
-    }
-    .eyebrow::before {
-      content: ""; width: 10px; height: 10px; border-radius: 50%; background: linear-gradient(135deg, var(--brand), var(--brand-2));
-      box-shadow: 0 0 0 6px rgba(255, 197, 12, 0.12);
-    }
-    h1 { font-size: clamp(3.2rem, 7vw, 6.2rem); max-width: 620px; }
-    h1 .accent { display: inline-block; color: var(--brand-2); text-shadow: 0 2px 0 rgba(0,0,0,0.04); }
-    .lead { margin-top: 22px; max-width: 620px; font-size: clamp(1.08rem, 1.5vw, 1.3rem); color: var(--muted); }
-    .cta-row { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 30px; }
-    .stats { display: flex; flex-wrap: wrap; gap: 22px; margin-top: 34px; }
-    .stat { min-width: 120px; }
-    .stat strong {
-      display: block; font-family: "Bricolage Grotesque", sans-serif; font-size: clamp(1.7rem, 2vw, 2.5rem);
-      letter-spacing: -0.05em; margin-bottom: 4px;
-    }
-    .stat span { color: var(--muted); font-size: 0.95rem; }
+        .reveal-up.active, .reveal-scale.active {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
 
-    .visual-wrap { position: relative; display: grid; place-items: center; min-height: 620px; }
-    .glow {
-      position: absolute; width: 540px; height: 540px; border-radius: 50%;
-      background: radial-gradient(circle, rgba(255,197,12,0.52), rgba(255, 141, 58, 0.2) 42%, rgba(255,255,255,0) 70%);
-      filter: blur(18px); z-index: 0;
-    }
-    .device {
-      position: relative; z-index: 1; width: min(440px, 92%); padding: 18px; border-radius: 36px;
-      background: linear-gradient(180deg, #1b160a, #111111); box-shadow: var(--shadow); transform: rotate(-5deg);
-    }
-    .device-screen {
-      position: relative; background: linear-gradient(180deg, #fffaf1, #f9f2db); border-radius: 28px; min-height: 560px;
-      padding: 18px 18px 12px; overflow: hidden; border: 1px solid rgba(255,255,255,0.7);
-    }
-    .screen-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; font-size: 0.8rem; font-weight: 700; color: var(--ink); }
-    .window-dots { display: flex; gap: 7px; }
-    .window-dots span { width: 10px; height: 10px; background: rgba(26, 20, 6, 0.25); border-radius: 50%; }
-    .creator { display: flex; align-items: center; gap: 10px; font-size: 0.86rem; font-weight: 700; }
-    .avatar {
-      width: 28px; height: 28px; border-radius: 50%; background: linear-gradient(135deg, var(--brand), var(--brand-2));
-      display: grid; place-items: center; font-weight: 800; font-size: 0.72rem;
-    }
-    .content-card { background: #fff; border: 1px solid var(--line); border-radius: 22px; padding: 16px; box-shadow: 0 12px 24px rgba(26, 20, 6, 0.06); }
-    .content-hero {
-      background: radial-gradient(circle at top left, rgba(255, 197, 12, 0.22), transparent 38%), #fff7d6; min-height: 180px; border-radius: 20px; position: relative; overflow: hidden;
-      border: 1px solid rgba(26,20,6,.08); display: grid; place-items: center; margin-bottom: 18px;
-    }
-    .content-hero::before, .content-hero::after { content: ""; position: absolute; border-radius: 50%; background: rgba(255, 197, 12, 0.22); }
-    .content-hero::before { width: 220px; height: 220px; right: -40px; top: -50px; }
-    .content-hero::after { width: 120px; height: 120px; left: -22px; bottom: -36px; }
-    .chart { position: relative; z-index: 1; display: flex; align-items: end; gap: 8px; height: 110px; width: 85%; }
-    .chart span { flex: 1; border-radius: 10px 10px 0 0; background: linear-gradient(180deg, #ffd449, #ff9b36); display: block; box-shadow: inset 0 0 0 1px rgba(26,20,6,.1); }
-    .chart span:nth-child(1) { height: 28%; } .chart span:nth-child(2) { height: 42%; } .chart span:nth-child(3) { height: 62%; } .chart span:nth-child(4) { height: 72%; } .chart span:nth-child(5) { height: 90%; } .chart span:nth-child(6) { height: 100%; }
-    .metric-row { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 12px; margin-top: 14px; }
-    .mini-box { padding: 12px 10px; background: var(--surface-soft); border: 1px solid var(--line); border-radius: 16px; }
-    .mini-box strong { display: block; font-family: "Bricolage Grotesque", sans-serif; font-size: 1.2rem; letter-spacing: -0.05em; }
-    .mini-box span { display: block; margin-top: 4px; color: var(--muted); font-size: 0.78rem; }
-    .badge { position: absolute; z-index: 2; background: rgba(255,255,255,0.84); border: 1px solid rgba(26, 20, 6, 0.08); border-radius: 16px; padding: 10px 14px; box-shadow: 0 18px 30px rgba(26,20,6,.08); font-weight: 700; color: var(--ink); backdrop-filter: blur(6px); }
-    .badge-one { top: 76px; right: 14px; }
-    .badge-two { bottom: 80px; left: 8px; }
+        /* Stagger delays */
+        .delay-100 { transition-delay: 0.1s; }
+        .delay-200 { transition-delay: 0.2s; }
+        .delay-300 { transition-delay: 0.3s; }
+        .delay-400 { transition-delay: 0.4s; }
 
-    .section { padding: 100px 0; }
-    .section-head { display: flex; align-items: end; justify-content: space-between; gap: 28px; margin-bottom: 36px; }
-    .section-head h2 { font-size: clamp(2.35rem, 5vw, 4rem); max-width: 540px; }
-    .section-head p { max-width: 440px; color: var(--muted); font-size: 1.05rem; }
-    .services-grid { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 20px; }
-    .card { background: rgba(255,255,255,0.7); border: 1px solid var(--line); border-radius: 26px; padding: 26px 22px; box-shadow: 0 14px 30px rgba(26,20,6,.04); }
-    .icon { width: 54px; height: 54px; border-radius: 18px; display: grid; place-items: center; background: linear-gradient(135deg, rgba(255,197,12,.25), rgba(255,141,58,.12)); border: 1px solid rgba(26,20,6,.08); font-size: 1.5rem; margin-bottom: 18px; }
-    .card h3 { font-size: 1.5rem; margin-bottom: 10px; }
-    .card p { color: var(--muted); font-size: 0.98rem; }
-    .card ul { list-style: none; padding: 0; margin: 18px 0 0; display: grid; gap: 8px; color: var(--ink); font-weight: 600; }
-    .card li::before { content: "•"; color: var(--brand-2); margin-right: 8px; }
+        .text-outline {
+            color: transparent;
+            -webkit-text-stroke: 1px #111111;
+        }
 
-    .dark-band { background: linear-gradient(180deg, var(--ink), #201a12); color: #f7f2e8; border-top: 1px solid rgba(255,255,255,0.08); border-bottom: 1px solid rgba(255,255,255,0.08); }
-    .dark-band .section-head p, .dark-band .step-copy p, .dark-band .label { color: rgba(247, 242, 232, 0.72); }
-    .process { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 18px; margin-top: 32px; }
-    .step { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); border-radius: 24px; padding: 20px 18px; }
-    .step-number { width: 46px; height: 46px; border-radius: 50%; display: grid; place-items: center; font-weight: 800; font-family: "Bricolage Grotesque", sans-serif; background: linear-gradient(135deg, rgba(255,197,12,.9), rgba(255,141,58,.9)); color: var(--ink); margin-bottom: 18px; }
-    .step h3 { font-size: 1.5rem; margin-bottom: 8px; }
-    .step p { color: rgba(247, 242, 232, 0.72); font-size: 0.98rem; }
-
-    .work-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 22px; }
-    .case-study { background: linear-gradient(180deg, rgba(255,197,12,0.14), rgba(255,197,12,0.02)); border: 1px solid var(--line); border-radius: 28px; padding: 22px; display: grid; gap: 18px; }
-    .case-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; color: var(--muted); font-weight: 700; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.12em; }
-    .visual-box { min-height: 240px; border-radius: 22px; background: linear-gradient(135deg, rgba(255,197,12,.3), rgba(255,141,58,.12)); border: 1px solid rgba(26,20,6,.06); position: relative; overflow: hidden; }
-    .visual-box::before { content: ""; position: absolute; inset: 18px; border-radius: 18px; background: linear-gradient(160deg, rgba(255,255,255,.86), rgba(255,255,255,.24)); border: 1px solid rgba(26,20,6,.06); }
-    .bars { position: absolute; inset: auto 30px 30px 30px; display: flex; align-items: end; gap: 10px; height: 110px; }
-    .bars span { flex: 1; border-radius: 12px 12px 0 0; background: linear-gradient(180deg, #ffdd67, #ff9d4f); }
-    .bars span:nth-child(1) { height: 38%; } .bars span:nth-child(2) { height: 58%; } .bars span:nth-child(3) { height: 72%; } .bars span:nth-child(4) { height: 84%; } .bars span:nth-child(5) { height: 100%; }
-
-    .mini-cases { display: grid; gap: 22px; }
-    .mini-card { background: var(--surface); border: 1px solid var(--line); border-radius: 24px; padding: 22px; }
-    .mini-card .label { display: inline-block; color: var(--muted); font-size: 0.74rem; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 10px; font-weight: 700; }
-    .mini-card h3 { font-size: 1.7rem; margin-bottom: 8px; }
-    .mini-card p { color: var(--muted); margin-bottom: 16px; }
-    .chip-row { display: flex; flex-wrap: wrap; gap: 8px; }
-    .chip { border: 1px solid var(--line); background: #fff9e9; border-radius: 999px; padding: 7px 10px; font-size: 0.75rem; font-weight: 700; color: var(--ink); }
-
-    .packages { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 22px; }
-    .price-card { background: var(--surface); border: 1px solid var(--line); border-radius: 26px; padding: 24px 22px 20px; position: relative; overflow: hidden; }
-    .price-card.featured { background: linear-gradient(180deg, rgba(255,197,12,.18), rgba(255,197,12,.06)); border-color: rgba(26,20,6,.16); transform: translateY(-6px); box-shadow: 0 20px 35px rgba(26,20,6,0.06); }
-    .tag { display: inline-block; background: rgba(255,197,12,.16); color: var(--ink); font-size: 0.74rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; border-radius: 999px; padding: 7px 10px; margin-bottom: 14px; }
-    .price { display: flex; align-items: end; gap: 8px; margin: 14px 0 18px; }
-    .price strong { font-family: "Bricolage Grotesque", sans-serif; font-size: clamp(2.5rem, 4vw, 3.2rem); letter-spacing: -0.06em; }
-    .price span { color: var(--muted); font-weight: 600; margin-bottom: 8px; }
-    .price-card ul { list-style: none; padding: 0; margin: 0 0 20px; display: grid; gap: 10px; color: var(--muted); }
-    .price-card li::before { content: "✓"; color: var(--brand-2); font-weight: 800; margin-right: 10px; }
-
-    .testimonials { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 20px; }
-    .quote { background: rgba(255,255,255,0.7); border: 1px solid var(--line); border-radius: 24px; padding: 22px; }
-    .stars { color: var(--brand-2); letter-spacing: 0.2em; font-size: 0.8rem; margin-bottom: 18px; }
-    .quote p { color: var(--ink); font-size: 1.05rem; margin-bottom: 18px; }
-    .person { display: flex; align-items: center; gap: 12px; margin-top: auto; }
-    .person-badge { width: 42px; height: 42px; border-radius: 50%; display: grid; place-items: center; background: linear-gradient(135deg, rgba(255,197,12,.8), rgba(255,141,58,.8)); font-weight: 800; }
-    .person strong { display: block; font-size: 0.98rem; }
-    .person span { color: var(--muted); font-size: 0.82rem; }
-
-    .cta-panel { background: linear-gradient(135deg, rgba(255,197,12,.25), rgba(255,141,58,.14)); border: 1px solid var(--line); border-radius: 30px; padding: 30px 32px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
-    .cta-panel h2 { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 8px; }
-    .cta-panel p { color: var(--muted); max-width: 620px; }
-
-    footer { padding: 32px 0 54px; color: var(--muted); font-size: 0.95rem; }
-    .footer-row { display: flex; align-items: center; justify-content: space-between; gap: 20px; border-top: 1px solid var(--line); padding-top: 20px; }
-    .socials { display: flex; gap: 14px; }
-    .socials a { width: 36px; height: 36px; border-radius: 50%; display: grid; place-items: center; background: var(--surface); border: 1px solid var(--line); font-weight: 700; }
-
-    @media (max-width: 980px) {
-      .hero-grid, .services-grid, .work-grid, .packages, .testimonials, .process { grid-template-columns: 1fr 1fr; }
-      .hero-grid { grid-template-columns: 1fr; text-align: center; }
-      .hero-copy { display: flex; flex-direction: column; align-items: center; }
-      .section-head, .cta-panel, .footer-row { flex-direction: column; align-items: flex-start; }
-    }
-
-    @media (max-width: 720px) {
-      .nav { flex-wrap: wrap; padding: 14px 0; }
-      .nav-links { display: none; }
-      .hero { padding-top: 42px; }
-      .services-grid, .work-grid, .packages, .testimonials, .process { grid-template-columns: 1fr; }
-      .device { transform: rotate(0deg); }
-      .cta-panel { width: 100%; padding: 24px 20px; }
-    }
-  </style>
+        /* Subtle grid background */
+        .bg-grid {
+            background-size: 40px 40px;
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+        }
+    </style>
 </head>
-<body>
-  <header class="site-header">
-    <div class="wrap nav">
-      <a class="brand" href="#top" aria-label="Viral Bee home">
-        <span class="brand-mark">VB</span>
-        <span>Viral</span><span>Bee</span>
-      </a>
-      <nav class="nav-links" aria-label="Main navigation">
-        <a href="#services">Services</a>
-        <a href="#process">Process</a>
-        <a href="#work">Work</a>
-        <a href="#pricing">Pricing</a>
-        <a href="#contact">Contact</a>
-      </nav>
-      <a class="btn" href="#contact">Book a call</a>
-    </div>
-  </header>
+<body class="antialiased selection:bg-brand-500 selection:text-white relative bg-grid">
 
-  <main id="top">
-    <section class="hero">
-      <div class="wrap hero-grid">
-        <div class="hero-copy">
-          <div class="eyebrow">Creative growth studio</div>
-          <h1>We turn attention into <span class="accent">momentum</span>.</h1>
-          <p class="lead">Viral Bee helps ambitious brands grow faster with standout creative, performance marketing, and strategy designed to win attention across the platforms that matter.</p>
-          <div class="cta-row">
-            <a class="btn" href="#contact">Start your growth plan</a>
-            <a class="btn alt" href="#work">See our work</a>
-          </div>
-          <div class="stats" aria-label="Company metrics">
-            <div class="stat"><strong>3.4x</strong><span>average reach lift</span></div>
-            <div class="stat"><strong>12+</strong><span>brands scaled</span></div>
-            <div class="stat"><strong>94%</strong><span>client retention</span></div>
-          </div>
-        </div>
-
-        <div class="visual-wrap" aria-hidden="true">
-          <div class="glow"></div>
-          <div class="badge badge-one">+3.4x reach</div>
-          <div class="badge badge-two">Campaigns live</div>
-          <div class="device">
-            <div class="device-screen">
-              <div class="screen-top">
-                <div class="window-dots"><span></span><span></span><span></span></div>
-                <div>Growth dashboard</div>
-              </div>
-              <div class="creator"><div class="avatar">V</div><div>Viral Bee Studio</div></div>
-              <div class="content-card" style="margin-top: 18px;">
-                <div class="content-hero">
-                  <div class="chart"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 transition-all duration-500 py-6" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center bg-white/40 backdrop-blur-md rounded-full px-6 py-3 border border-white/60 shadow-soft">
+                
+                <div class="flex items-center gap-3 cursor-pointer group">
+                    <img src="VyralBee_logo.png" alt="VyralBee" width="56" height="56" class="h-14 w-14 rounded-full object-contain transition-transform duration-700 group-hover:rotate-90">
+                    <span class="font-display font-extrabold text-xl tracking-tight whitespace-nowrap text-dark">
+                        VYRAL<span>BEE</span>
+                    </span>
                 </div>
-                <div class="metric-row">
-                  <div class="mini-box"><strong>2.8M</strong><span>views</span></div>
-                  <div class="mini-box"><strong>8.1%</strong><span>CTR</span></div>
-                  <div class="mini-box"><strong>42%</strong><span>ROAS</span></div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#" class="text-sm font-semibold text-dark hover:text-brand-500 transition-colors">Home</a>
+                    <a href="#about" class="text-sm font-medium text-dark/70 hover:text-dark transition-colors">About</a>
+                    <a href="#services" class="text-sm font-medium text-dark/70 hover:text-dark transition-colors">Services</a>
+                    <a href="#work" class="text-sm font-medium text-dark/70 hover:text-dark transition-colors">Work</a>
+                    <a href="#packages" class="text-sm font-medium text-dark/70 hover:text-dark transition-colors">Packages</a>
                 </div>
-              </div>
+
+                <!-- CTA Button -->
+                <div class="hidden md:flex">
+                    <a href="#contact" class="group relative inline-flex items-center justify-center px-6 py-2.5 text-sm font-bold text-white bg-dark rounded-full overflow-hidden transition-all duration-300 hover:scale-105">
+                        <span class="absolute inset-0 w-full h-full bg-brand-500 transition-all duration-300 ease-out transform -translate-x-full group-hover:translate-x-0"></span>
+                        <span class="relative flex items-center gap-2">Let's Talk <i class="fa-solid fa-arrow-right text-xs"></i></span>
+                    </a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button class="text-dark hover:text-brand-500 transition-colors focus:outline-none">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
-    </section>
+    </nav>
 
-    <section class="section" id="services">
-      <div class="wrap">
-        <div class="section-head">
-          <h2>Built for brands that want real, measurable attention.</h2>
-          <p>From brand positioning to paid acquisition, we build full-funnel marketing systems that move people from discovery to action.</p>
-        </div>
-        <div class="services-grid">
-          <article class="card">
-            <div class="icon">✦</div>
-            <h3>Brand Strategy</h3>
-            <p>Sharper positioning, clearer messaging and campaigns that make your business instantly recognizable.</p>
-            <ul><li>Positioning</li><li>Messaging</li><li>Creative direction</li></ul>
-          </article>
-          <article class="card">
-            <div class="icon">◎</div>
-            <h3>Performance Ads</h3>
-            <p>Media buying and creative testing built to acquire qualified customers efficiently.</p>
-            <ul><li>Meta & TikTok</li><li>Landing pages</li><li>Conversion optimization</li></ul>
-          </article>
-          <article class="card">
-            <div class="icon">▣</div>
-            <h3>Content Systems</h3>
-            <p>High-performing content calendars designed to build trust and keep your audience engaged.</p>
-            <ul><li>Short-form video</li><li>Campaign narratives</li><li>Creator direction</li></ul>
-          </article>
-          <article class="card">
-            <div class="icon">↗</div>
-            <h3>Growth Analytics</h3>
-            <p>We turn data into decisions with dashboards that show what is driving growth and what needs attention.</p>
-            <ul><li>Attribution</li><li>Reporting</li><li>Experiment design</li></ul>
-          </article>
-        </div>
-      </div>
-    </section>
+    <!-- Hero Section -->
+    <section class="pt-32 pb-16 sm:pt-48 sm:pb-24 lg:pb-32 overflow-hidden min-h-screen flex items-center relative">
+        <!-- Aesthetic Gradient Orb -->
+        <div class="absolute top-1/4 right-1/4 w-[600px] h-[600px] bg-brand-200/40 rounded-full mix-blend-multiply filter blur-[100px] opacity-70 -z-10 animate-float"></div>
 
-    <section class="section dark-band" id="process">
-      <div class="wrap">
-        <div class="section-head">
-          <h2>Our process keeps momentum high.</h2>
-          <p>We move fast, test quickly, and build systems that scale without chaos.</p>
-        </div>
-        <div class="process">
-          <article class="step"><div class="step-number">1</div><h3>Diagnose</h3><p>We audit your market, funnel and creative to find the biggest gaps in visibility and conversion.</p></article>
-          <article class="step"><div class="step-number">2</div><h3>Position</h3><p>We sharpen your offer, creative direction and customer message so your brand stands out quickly.</p></article>
-          <article class="step"><div class="step-number">3</div><h3>Launch</h3><p>We build campaigns, landing pages and content systems designed to drive qualified action from day one.</p></article>
-          <article class="step"><div class="step-number">4</div><h3>Scale</h3><p>We optimize every lever from creative to conversion, doubling down on what consistently drives growth.</p></article>
-        </div>
-      </div>
-    </section>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+            <div class="lg:grid lg:grid-cols-12 lg:gap-16 items-center">
+                
+                <!-- Left Content -->
+                <div class="lg:col-span-6 text-center lg:text-left mb-16 lg:mb-0 relative z-10">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-dark/10 bg-white/50 backdrop-blur-sm mb-6 reveal-up">
+                        <span class="w-2 h-2 rounded-full bg-brand-500 animate-pulse"></span>
+                        <span class="text-xs font-bold tracking-widest text-dark uppercase">Creative Ideas. Real Results.</span>
+                    </div>
+                    
+                    <h1 class="text-5xl sm:text-6xl lg:text-7xl font-display font-extrabold text-dark tracking-tight leading-[1.05] mb-6 reveal-up delay-100">
+                        We Make <br />
+                        Brands <span class="text-brand-500 italic pr-2">Visible.</span>
+                    </h1>
+                    
+                    <p class="text-lg text-dark/70 mb-8 leading-relaxed max-w-xl mx-auto lg:mx-0 reveal-up delay-200">
+                        A modern digital marketing agency helping businesses build a strong online presence, attract the exact right audience, and generate measurable growth.
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-12 reveal-up delay-300">
+                        <a href="#services" class="inline-flex items-center justify-center px-8 py-4 text-base font-bold rounded-full text-white bg-brand-500 hover:bg-brand-600 shadow-lg shadow-brand-500/20 transition-all hover:-translate-y-1">
+                            Grow Your Brand <i class="fa-solid fa-arrow-right ml-2"></i>
+                        </a>
+                        <a href="#work" class="inline-flex items-center justify-center px-8 py-4 text-base font-bold rounded-full text-dark bg-transparent border border-dark hover:bg-dark hover:text-white transition-all hover:-translate-y-1">
+                            See Our Work
+                        </a>
+                    </div>
 
-    <section class="section" id="work">
-      <div class="wrap">
-        <div class="section-head">
-          <h2>Proof that attention turns into performance.</h2>
-          <p>We work with founders and teams ready to scale with strategy, speed and clarity.</p>
-        </div>
-        <div class="work-grid">
-          <article class="case-study">
-            <div class="case-top"><span>Case study</span><span>Fashion retail</span></div>
-            <div>
-              <h3 style="font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 10px;">+328% lift in qualified traffic</h3>
-              <p style="color: var(--muted); max-width: 540px;">We rebuilt the brand narrative, redesigned the ad strategy, and restructured the funnel to focus on high-intent shoppers.</p>
+                    <!-- Minimalist Stats -->
+                    <div class="grid grid-cols-3 gap-6 pt-8 reveal-up delay-400">
+                        <div>
+                            <p class="text-3xl font-display font-extrabold text-dark">6<span class="text-brand-500">+</span></p>
+                            <p class="text-xs font-semibold text-dark/50 uppercase tracking-wider mt-1">Core Services</p>
+                        </div>
+                        <div>
+                            <p class="text-3xl font-display font-extrabold text-dark">100<span class="text-brand-500">+</span></p>
+                            <p class="text-xs font-semibold text-dark/50 uppercase tracking-wider mt-1">Creative Projects</p>
+                        </div>
+                        <div>
+                            <p class="text-3xl font-display font-extrabold text-dark">∞</p>
+                            <p class="text-xs font-semibold text-dark/50 uppercase tracking-wider mt-1">Growth Potential</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Content (Structured UI Mockups) -->
+                <div class="lg:col-span-6 relative h-[500px] sm:h-[650px] w-full mt-10 lg:mt-0 perspective-1000">
+                    
+                    <!-- Main Focus Image (Minimalist Workspace) -->
+                    <div class="absolute right-0 top-1/2 -translate-y-1/2 w-[85%] aspect-[4/5] sm:aspect-square rounded-3xl overflow-hidden shadow-2xl reveal-scale bg-dark/10">
+                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1000&q=80" alt="" class="w-full h-full object-cover text-transparent">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark/60 via-transparent to-transparent"></div>
+                    </div>
+
+                    <!-- Floating UI Card 1: Data / Analytics (Top Left) -->
+                    <div class="absolute top-[10%] left-0 glass-card rounded-2xl p-5 w-56 shadow-glass animate-float-delayed z-20">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="flex items-center gap-2">
+                                <div class="w-8 h-8 rounded-full bg-dark flex items-center justify-center">
+                                    <i class="fa-solid fa-chart-pie text-white text-xs"></i>
+                                </div>
+                                <span class="text-sm font-bold text-dark">Brand Growth</span>
+                            </div>
+                            <span class="text-xs font-bold text-brand-500 bg-brand-50 px-2 py-1 rounded-md">+78%</span>
+                        </div>
+                        <!-- Sleek Bar Chart -->
+                        <div class="flex items-end justify-between gap-1 h-16 pt-2">
+                            <div class="w-full bg-dark/10 rounded-t-sm h-[30%] transition-all hover:bg-dark/20"></div>
+                            <div class="w-full bg-dark/10 rounded-t-sm h-[45%] transition-all hover:bg-dark/20"></div>
+                            <div class="w-full bg-dark/10 rounded-t-sm h-[25%] transition-all hover:bg-dark/20"></div>
+                            <div class="w-full bg-dark/30 rounded-t-sm h-[60%] transition-all hover:bg-dark/40"></div>
+                            <div class="w-full bg-dark rounded-t-sm h-[85%] shadow-[0_0_10px_rgba(17,17,17,0.3)]"></div>
+                            <div class="w-full bg-brand-500 rounded-t-sm h-[100%] shadow-[0_0_15px_rgba(255,79,56,0.4)]"></div>
+                        </div>
+                    </div>
+
+                    <!-- Floating UI Card 2: Reel/Video Mockup (Bottom Left) -->
+                    <div class="absolute bottom-[10%] left-[10%] glass-card rounded-2xl p-2 w-40 shadow-glass animate-float z-30">
+                        <div class="relative rounded-xl overflow-hidden aspect-[9/16] bg-dark">
+                            <img src="https://images.unsplash.com/photo-1616469829581-73993eb86b02?auto=format&fit=crop&q=80&w=400" alt="" class="w-full h-full object-cover opacity-90 mix-blend-luminosity hover:mix-blend-normal transition-all duration-500 text-transparent">
+                            
+                            <!-- Video UI Overlay -->
+                            <div class="absolute inset-0 bg-gradient-to-t from-dark/80 via-transparent to-transparent"></div>
+                            <div class="absolute top-3 right-3">
+                                <span class="bg-white/20 backdrop-blur-md text-white text-[10px] font-bold px-2 py-1 rounded-full flex items-center gap-1">
+                                    <i class="fa-solid fa-play text-brand-500"></i> 12.5K
+                                </span>
+                            </div>
+                            <div class="absolute bottom-3 left-3 right-3">
+                                <div class="w-full h-1 bg-white/30 rounded-full mb-2 overflow-hidden">
+                                    <div class="w-2/3 h-full bg-brand-500"></div>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <div class="w-6 h-6 rounded-full bg-brand-500 flex items-center justify-center">
+                                        <i class="fa-solid fa-check text-white text-[10px]"></i>
+                                    </div>
+                                    <span class="text-white text-xs font-semibold truncate">High Conversion</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Floating UI Element: Social Pill -->
+                    <div class="absolute top-[45%] right-[-5%] glass-card rounded-full pl-2 pr-4 py-2 shadow-glass animate-float z-20 flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-brand-500 flex items-center justify-center text-white shadow-lg">
+                            <i class="fa-brands fa-instagram text-lg"></i>
+                        </div>
+                        <div>
+                            <p class="text-[10px] font-bold text-dark/50 uppercase">Engagement</p>
+                            <p class="text-sm font-bold text-dark">Skyrocketing <i class="fa-solid fa-arrow-trend-up text-brand-500 ml-1"></i></p>
+                        </div>
+                    </div>
+
+                </div>
+
             </div>
-            <div class="visual-box"><div class="bars"><span></span><span></span><span></span><span></span><span></span></div></div>
-          </article>
-          <div class="mini-cases">
-            <article class="mini-card">
-              <div class="label">DTC growth</div>
-              <h3>5.7x ROAS</h3>
-              <p>Creative testing and conversion improvements created a sharper, faster acquisition engine.</p>
-              <div class="chip-row"><span class="chip">Meta</span><span class="chip">TikTok</span><span class="chip">Offer design</span></div>
-            </article>
-            <article class="mini-card">
-              <div class="label">Brand clarity</div>
-              <h3>2.4x engagement</h3>
-              <p>Messaging and content systems made the offering more memorable and more magnetic.</p>
-              <div class="chip-row"><span class="chip">Video</span><span class="chip">Content</span><span class="chip">Positioning</span></div>
-            </article>
-          </div>
         </div>
-      </div>
     </section>
 
-    <section class="section" id="pricing">
-      <div class="wrap">
-        <div class="section-head">
-          <h2>Flexible packages for momentum-focused brands.</h2>
-          <p>Choose the level of support that fits your growth stage and move at your own pace.</p>
+    <!-- About Section -->
+    <section id="about" class="py-24 bg-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                
+                <!-- Image side -->
+                <div class="relative reveal-up">
+                    <div class="aspect-[4/3] rounded-3xl overflow-hidden relative z-10 shadow-soft">
+                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=800" alt="Team strategy session" class="object-cover w-full h-full grayscale hover:grayscale-0 transition-all duration-700">
+                    </div>
+                    
+                    <!-- Structural decorative block -->
+                    <div class="absolute -bottom-6 -left-6 w-full h-full border-2 border-dark rounded-3xl -z-10 transition-transform hover:-translate-x-2 hover:translate-y-2 duration-500"></div>
+                    
+                    <!-- Experience Badge -->
+                    <div class="absolute -right-8 top-1/4 bg-dark text-white rounded-2xl p-6 shadow-2xl hidden sm:block animate-float">
+                        <p class="text-4xl font-display font-extrabold text-brand-500 mb-1">100%</p>
+                        <p class="text-sm font-semibold text-white/80">Business-focused<br>Strategy</p>
+                    </div>
+                </div>
+
+                <!-- Content side -->
+                <div class="reveal-up delay-200">
+                    <h2 class="text-sm font-bold tracking-widest text-brand-500 uppercase mb-4">Who Is VyralBee</h2>
+                    <h3 class="text-3xl md:text-5xl font-display font-extrabold text-dark mb-6 leading-[1.1]">
+                        Your dedicated partner in digital growth.
+                    </h3>
+                    <p class="text-dark/70 text-lg mb-6 leading-relaxed">
+                        We are a creative digital marketing agency focused on helping your business attract the right audience and generate measurable growth. 
+                    </p>
+                    <p class="text-dark/70 text-lg mb-8 leading-relaxed">
+                        Think of us as an extension of your team. We combine <span class="font-bold text-dark">strategy, design, and performance marketing</span> under one roof. You no longer need to manage five different freelancers to get consistent, high-quality results.
+                    </p>
+                    
+                    <ul class="space-y-4 mb-10">
+                        <li class="flex items-center text-dark font-semibold">
+                            <span class="w-8 h-8 rounded-full bg-brand-50 text-brand-500 flex items-center justify-center mr-4 shadow-sm"><i class="fa-solid fa-check text-sm"></i></span> 
+                            Transparent Communication
+                        </li>
+                        <li class="flex items-center text-dark font-semibold">
+                            <span class="w-8 h-8 rounded-full bg-brand-50 text-brand-500 flex items-center justify-center mr-4 shadow-sm"><i class="fa-solid fa-check text-sm"></i></span> 
+                            Performance Tracking & Reporting
+                        </li>
+                        <li class="flex items-center text-dark font-semibold">
+                            <span class="w-8 h-8 rounded-full bg-brand-50 text-brand-500 flex items-center justify-center mr-4 shadow-sm"><i class="fa-solid fa-check text-sm"></i></span> 
+                            Dedicated Account Management
+                        </li>
+                    </ul>
+
+                    <a href="#about-more" class="inline-flex items-center font-bold text-dark hover:text-brand-500 transition-colors group">
+                        <span class="border-b-2 border-dark group-hover:border-brand-500 pb-1 mr-2 transition-colors">Learn more about our approach</span>
+                        <i class="fa-solid fa-arrow-right transform group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                </div>
+            </div>
         </div>
-        <div class="packages">
-          <article class="price-card">
-            <div class="tag">Starter</div>
-            <h3>Launch Sprint</h3>
-            <div class="price"><strong>$1.5k</strong><span>/ month</span></div>
-            <ul>
-              <li>Strategy session & positioning audit</li>
-              <li>Two campaign concepts</li>
-              <li>Performance creative guidance</li>
-              <li>Monthly reporting snapshot</li>
-            </ul>
-            <a class="btn alt" href="#contact">Get started</a>
-          </article>
-          <article class="price-card featured">
-            <div class="tag">Most popular</div>
-            <h3>Growth Engine</h3>
-            <div class="price"><strong>$3.5k</strong><span>/ month</span></div>
-            <ul>
-              <li>Brand strategy and landing page optimization</li>
-              <li>Ad creative production and testing</li>
-              <li>Multi-channel campaign management</li>
-              <li>Weekly reporting and optimization</li>
-            </ul>
-            <a class="btn" href="#contact">Book a strategy call</a>
-          </article>
-          <article class="price-card">
-            <div class="tag">Scale</div>
-            <h3>Full Funnel</h3>
-            <div class="price"><strong>$6k</strong><span>/ month</span></div>
-            <ul>
-              <li>Fractional growth leadership</li>
-              <li>Full-funnel content and media operations</li>
-              <li>Advanced experimentation & forecasting</li>
-              <li>Executive reporting and roadmap</li>
-            </ul>
-            <a class="btn alt" href="#contact">Talk to us</a>
-          </article>
-        </div>
-      </div>
     </section>
 
-    <section class="section">
-      <div class="wrap">
-        <div class="section-head">
-          <h2>Clients want a partner, not just a vendor.</h2>
-          <p>We stay close to the work and share the wins, friction, and next moves with real clarity.</p>
+    <!-- Services Section -->
+    <section id="services" class="py-24 bg-surface relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 reveal-up">
+                <h2 class="text-sm font-bold tracking-widest text-brand-500 uppercase mb-4">What We Do</h2>
+                <h3 class="text-3xl md:text-5xl font-display font-extrabold text-dark mb-6 leading-[1.1]">
+                    Everything you need to scale, under one roof.
+                </h3>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+                
+                <!-- Service 1: Social Media -->
+                <div class="group relative bg-dark rounded-[2rem] overflow-hidden p-8 reveal-up delay-100 hover:-translate-y-3 transition-all duration-500 shadow-soft hover:shadow-2xl">
+                    <div class="absolute inset-0 opacity-50 group-hover:opacity-90 transition-all duration-700">
+                        <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&q=80&w=800" alt="Social Media" class="w-full h-full object-cover transform scale-100 group-hover:scale-110 transition-transform duration-1000">
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-dark via-dark/60 to-transparent"></div>
+                    
+                    <div class="relative z-10 h-full flex flex-col min-h-[320px]">
+                        <div class="w-14 h-14 rounded-full bg-brand-500 text-white flex items-center justify-center text-2xl mb-auto transform group-hover:scale-110 group-hover:rotate-12 transition-all duration-500 shadow-lg shadow-brand-500/30">
+                            <i class="fa-solid fa-mobile-screen"></i>
+                        </div>
+                        <div class="mt-12">
+                            <h4 class="text-2xl font-display font-bold text-white mb-3 group-hover:text-brand-500 transition-colors duration-300">Social Media Management</h4>
+                            <p class="text-white/80 mb-8 text-sm leading-relaxed">Comprehensive strategy, content creation, and active community management across all major platforms to keep your audience engaged.</p>
+                            <a href="#" class="inline-flex items-center text-sm font-bold text-white group-hover:text-brand-500 transition-colors w-full border-t border-white/20 pt-4">
+                                Explore Service 
+                                <span class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center ml-auto group-hover:bg-brand-500 group-hover:text-white transition-all duration-300 group-hover:translate-x-2">
+                                    <i class="fa-solid fa-arrow-right text-xs"></i>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service 2: Creative Design -->
+                <div class="group relative bg-dark rounded-[2rem] overflow-hidden p-8 reveal-up delay-200 hover:-translate-y-3 transition-all duration-500 shadow-soft hover:shadow-2xl">
+                    <div class="absolute inset-0 opacity-50 group-hover:opacity-90 transition-all duration-700">
+                        <img src="https://images.unsplash.com/photo-1626785775573-4b684521404c?auto=format&fit=crop&q=80&w=800" alt="Graphic Design" class="w-full h-full object-cover transform scale-100 group-hover:scale-110 transition-transform duration-1000">
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-dark via-dark/60 to-transparent"></div>
+                    
+                    <div class="relative z-10 h-full flex flex-col min-h-[320px]">
+                        <div class="w-14 h-14 rounded-full bg-brand-500 text-white flex items-center justify-center text-2xl mb-auto transform group-hover:scale-110 group-hover:rotate-12 transition-all duration-500 shadow-lg shadow-brand-500/30">
+                            <i class="fa-solid fa-pen-nib"></i>
+                        </div>
+                        <div class="mt-12">
+                            <h4 class="text-2xl font-display font-bold text-white mb-3 group-hover:text-brand-500 transition-colors duration-300">Creative & Graphic Design</h4>
+                            <p class="text-white/80 mb-8 text-sm leading-relaxed">Stunning brand identity packages, engaging social media templates, brochures, and promotional creatives that command attention.</p>
+                            <a href="#" class="inline-flex items-center text-sm font-bold text-white group-hover:text-brand-500 transition-colors w-full border-t border-white/20 pt-4">
+                                Explore Service 
+                                <span class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center ml-auto group-hover:bg-brand-500 group-hover:text-white transition-all duration-300 group-hover:translate-x-2">
+                                    <i class="fa-solid fa-arrow-right text-xs"></i>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service 3: Video -->
+                <div class="group relative bg-dark rounded-[2rem] overflow-hidden p-8 reveal-up delay-300 hover:-translate-y-3 transition-all duration-500 shadow-soft hover:shadow-2xl">
+                    <div class="absolute inset-0 opacity-50 group-hover:opacity-90 transition-all duration-700">
+                        <img src="https://images.unsplash.com/photo-1601506521937-0121a7fc2a6b?auto=format&fit=crop&q=80&w=800" alt="Video Content" class="w-full h-full object-cover transform scale-100 group-hover:scale-110 transition-transform duration-1000">
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-dark via-dark/60 to-transparent"></div>
+                    
+                    <div class="relative z-10 h-full flex flex-col min-h-[320px]">
+                        <div class="w-14 h-14 rounded-full bg-brand-500 text-white flex items-center justify-center text-2xl mb-auto transform group-hover:scale-110 group-hover:rotate-12 transition-all duration-500 shadow-lg shadow-brand-500/30">
+                            <i class="fa-solid fa-video"></i>
+                        </div>
+                        <div class="mt-12">
+                            <h4 class="text-2xl font-display font-bold text-white mb-3 group-hover:text-brand-500 transition-colors duration-300">Reels & Video Content</h4>
+                            <p class="text-white/80 mb-8 text-sm leading-relaxed">Short-form video production explicitly built to maximize reach, vitality, and engagement on Instagram, TikTok, and YouTube.</p>
+                            <a href="#" class="inline-flex items-center text-sm font-bold text-white group-hover:text-brand-500 transition-colors w-full border-t border-white/20 pt-4">
+                                Explore Service 
+                                <span class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center ml-auto group-hover:bg-brand-500 group-hover:text-white transition-all duration-300 group-hover:translate-x-2">
+                                    <i class="fa-solid fa-arrow-right text-xs"></i>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service 4: Websites -->
+                <div class="group relative bg-dark rounded-[2rem] overflow-hidden p-8 reveal-up delay-100 hover:-translate-y-3 transition-all duration-500 shadow-soft hover:shadow-2xl">
+                    <div class="absolute inset-0 opacity-50 group-hover:opacity-90 transition-all duration-700">
+                        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=800" alt="Web Design" class="w-full h-full object-cover transform scale-100 group-hover:scale-110 transition-transform duration-1000">
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-dark via-dark/60 to-transparent"></div>
+                    
+                    <div class="relative z-10 h-full flex flex-col min-h-[320px]">
+                        <div class="w-14 h-14 rounded-full bg-brand-500 text-white flex items-center justify-center text-2xl mb-auto transform group-hover:scale-110 group-hover:rotate-12 transition-all duration-500 shadow-lg shadow-brand-500/30">
+                            <i class="fa-solid fa-laptop-code"></i>
+                        </div>
+                        <div class="mt-12">
+                            <h4 class="text-2xl font-display font-bold text-white mb-3 group-hover:text-brand-500 transition-colors duration-300">Website Design & Dev</h4>
+                            <p class="text-white/80 mb-8 text-sm leading-relaxed">Responsive, high-converting business websites tailored to your brand, complete with SEO foundations and messaging integrations.</p>
+                            <a href="#" class="inline-flex items-center text-sm font-bold text-white group-hover:text-brand-500 transition-colors w-full border-t border-white/20 pt-4">
+                                Explore Service 
+                                <span class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center ml-auto group-hover:bg-brand-500 group-hover:text-white transition-all duration-300 group-hover:translate-x-2">
+                                    <i class="fa-solid fa-arrow-right text-xs"></i>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service 5: Ads -->
+                <div class="group relative bg-dark rounded-[2rem] overflow-hidden p-8 reveal-up delay-200 hover:-translate-y-3 transition-all duration-500 shadow-soft hover:shadow-2xl">
+                    <div class="absolute inset-0 opacity-50 group-hover:opacity-90 transition-all duration-700">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800" alt="Ads" class="w-full h-full object-cover transform scale-100 group-hover:scale-110 transition-transform duration-1000">
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-dark via-dark/60 to-transparent"></div>
+                    
+                    <div class="relative z-10 h-full flex flex-col min-h-[320px]">
+                        <div class="w-14 h-14 rounded-full bg-brand-500 text-white flex items-center justify-center text-2xl mb-auto transform group-hover:scale-110 group-hover:rotate-12 transition-all duration-500 shadow-lg shadow-brand-500/30">
+                            <i class="fa-solid fa-bullhorn"></i>
+                        </div>
+                        <div class="mt-12">
+                            <h4 class="text-2xl font-display font-bold text-white mb-3 group-hover:text-brand-500 transition-colors duration-300">Meta & Google Ads</h4>
+                            <p class="text-white/80 mb-8 text-sm leading-relaxed">Data-driven performance campaigns configured to reach your exact target audience and generate high-quality enquiries consistently.</p>
+                            <a href="#" class="inline-flex items-center text-sm font-bold text-white group-hover:text-brand-500 transition-colors w-full border-t border-white/20 pt-4">
+                                Explore Service 
+                                <span class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center ml-auto group-hover:bg-brand-500 group-hover:text-white transition-all duration-300 group-hover:translate-x-2">
+                                    <i class="fa-solid fa-arrow-right text-xs"></i>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service 6: Marketing -->
+                <div class="group relative bg-dark rounded-[2rem] overflow-hidden p-8 reveal-up delay-300 hover:-translate-y-3 transition-all duration-500 shadow-soft hover:shadow-2xl">
+                    <div class="absolute inset-0 opacity-50 group-hover:opacity-90 transition-all duration-700">
+                        <img src="https://images.unsplash.com/photo-1552581234-26160f608093?auto=format&fit=crop&q=80&w=800" alt="Digital Marketing" class="w-full h-full object-cover transform scale-100 group-hover:scale-110 transition-transform duration-1000">
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-dark via-dark/60 to-transparent"></div>
+                    
+                    <div class="relative z-10 h-full flex flex-col min-h-[320px]">
+                        <div class="w-14 h-14 rounded-full bg-brand-500 text-white flex items-center justify-center text-2xl mb-auto transform group-hover:scale-110 group-hover:rotate-12 transition-all duration-500 shadow-lg shadow-brand-500/30">
+                            <i class="fa-solid fa-chart-line"></i>
+                        </div>
+                        <div class="mt-12">
+                            <h4 class="text-2xl font-display font-bold text-white mb-3 group-hover:text-brand-500 transition-colors duration-300">Digital Marketing & Lead Gen</h4>
+                            <p class="text-white/80 mb-8 text-sm leading-relaxed">Full-funnel marketing strategies strictly tied to your tangible business outcomes, ensuring a solid return on your investment.</p>
+                            <a href="#" class="inline-flex items-center text-sm font-bold text-white group-hover:text-brand-500 transition-colors w-full border-t border-white/20 pt-4">
+                                Explore Service 
+                                <span class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center ml-auto group-hover:bg-brand-500 group-hover:text-white transition-all duration-300 group-hover:translate-x-2">
+                                    <i class="fa-solid fa-arrow-right text-xs"></i>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
         </div>
-        <div class="testimonials">
-          <article class="quote">
-            <div class="stars">★★★★★</div>
-            <p>“Viral Bee brought focus to our story and structure to our funnel. We finally had a strategy that felt premium and performed like it.”</p>
-            <div class="person"><div class="person-badge">M</div><div><strong>Maya Patel</strong><span>Founder, Northlane</span></div></div>
-          </article>
-          <article class="quote">
-            <div class="stars">★★★★★</div>
-            <p>“Their creative testing changed everything for us. We saw stronger response, better leads, and a much cleaner brand story.”</p>
-            <div class="person"><div class="person-badge">R</div><div><strong>Rafael Cruz</strong><span>CMO, Cedar & Co.</span></div></div>
-          </article>
-          <article class="quote">
-            <div class="stars">★★★★★</div>
-            <p>“They understand how to combine brand and performance without losing either. That balance is rare and extremely valuable.”</p>
-            <div class="person"><div class="person-badge">A</div><div><strong>Anya Brooks</strong><span>CEO, Bloom Well</span></div></div>
-          </article>
-        </div>
-      </div>
     </section>
 
-    <section class="section" id="contact">
-      <div class="wrap">
-        <div class="cta-panel">
-          <div>
-            <h2>Let’s build the growth system your brand deserves.</h2>
-            <p>Tell us what you’re building and where you want momentum to accelerate. We’ll map the next smarter step.</p>
-          </div>
-          <a class="btn" href="mailto:hello@viralbee.studio">hello@viralbee.studio</a>
-        </div>
-      </div>
-    </section>
-  </main>
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-16 border-t border-dark-secondary">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center md:items-start border-b border-dark-secondary pb-12 mb-8">
+                
+                <!-- Logo & Info -->
+                <div class="mb-8 md:mb-0 flex flex-col items-center md:items-start">
+                    <div class="mb-4">
+                        <img src="VyralBee_logo.png" alt="VyralBee" width="64" height="64" class="h-16 w-16 rounded-full object-contain">
+                    </div>
+                    <p class="text-white/50 text-sm max-w-xs text-center md:text-left">We make brands visible. Your dedicated partner in digital growth and performance.</p>
+                </div>
 
-  <footer>
-    <div class="wrap footer-row">
-      <div class="brand" aria-label="Viral Bee footer brand"><span class="brand-mark">VB</span><span>Viral</span><span>Bee</span></div>
-      <div>© 2026 Viral Bee — We make brands visible.</div>
-      <div class="socials" aria-label="Social links"><a href="#" aria-label="Instagram">IG</a><a href="#" aria-label="LinkedIn">in</a><a href="#" aria-label="X">X</a></div>
-    </div>
-  </footer>
+                <!-- Links -->
+                <div class="flex gap-12 text-center md:text-left">
+                    <div>
+                        <h5 class="font-bold text-white mb-4">Agency</h5>
+                        <ul class="space-y-2 text-sm text-white/50">
+                            <li><a href="#" class="hover:text-brand-500 transition-colors">About Us</a></li>
+                            <li><a href="#" class="hover:text-brand-500 transition-colors">Our Work</a></li>
+                            <li><a href="#" class="hover:text-brand-500 transition-colors">Packages</a></li>
+                            <li><a href="#" class="hover:text-brand-500 transition-colors">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5 class="font-bold text-white mb-4">Connect</h5>
+                        <ul class="space-y-2 text-sm text-white/50">
+                            <li><a href="#" class="hover:text-brand-500 transition-colors">Instagram</a></li>
+                            <li><a href="#" class="hover:text-brand-500 transition-colors">LinkedIn</a></li>
+                            <li><a href="#" class="hover:text-brand-500 transition-colors">Facebook</a></li>
+                            <li><a href="#" class="hover:text-brand-500 transition-colors">WhatsApp</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="flex flex-col md:flex-row justify-between items-center text-xs text-white/30">
+                <p>© 2026 VyralBee. All rights reserved.</p>
+                <div class="flex gap-4 mt-4 md:mt-0">
+                    <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+                    <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navbar Scrolled State
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 20) {
+                nav.classList.remove('py-6');
+                nav.classList.add('py-2');
+            } else {
+                nav.classList.add('py-6');
+                nav.classList.remove('py-2');
+            }
+        });
+
+        // Intersection Observer for buttery smooth scroll reveals
+        document.addEventListener("DOMContentLoaded", function() {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px 0px -50px 0px',
+                threshold: 0.15
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    } else {
+                        // Remove the active class when the element leaves the screen
+                        // This allows the animation to replay every time you scroll past it!
+                        entry.target.classList.remove('active');
+                    }
+                });
+            }, observerOptions);
+
+            const revealElements = document.querySelectorAll('.reveal-up, .reveal-scale');
+            revealElements.forEach(el => observer.observe(el));
+        });
+    </script>
 </body>
 </html>
